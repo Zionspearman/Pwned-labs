@@ -55,3 +55,6 @@ Searched for public EBS snapshots using the discovered AWS Account ID in the AWS
 - Located an **8 GiB public EBS snapshot** linked to account ID `107513503799`
 - Snapshot was unencrypted and publicly accessible
 - This represents a serious cloud security risk, as the snapshot could be copied and analyzed offline
+
+## 📄 Full Report
+[📎 S3-Buckets-Report.pdf](./S3-Buckets-Report.pdf)
