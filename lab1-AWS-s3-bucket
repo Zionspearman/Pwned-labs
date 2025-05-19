@@ -1,0 +1,57 @@
+# Lab 1 – AWS S3 Bucket Enumeration & Account ID Discovery
+
+## 🧠 Objective
+Perform enumeration and exploitation of a misconfigured AWS S3 bucket to:
+- Discover if the bucket is public
+- Extract sensitive metadata (like the AWS Account ID)
+- Identify further cloud resource exposures (e.g., EBS snapshot)
+
+---
+
+## 🧰 Tools Used
+- **Kali Linux**
+- **AWS CLI**
+- **Nmap**
+- **curl**
+- **Browser**
+- **s3-account-search** (open-source enumeration tool)
+
+---
+
+## 🧪 Steps Taken
+
+### 1. Configure AWS CLI and Verify Identity
+```bash
+aws sts get-caller-identity
+---
+
+### 2. Check If S3 Bucket Exists
+Used `curl` to check the bucket headers:
+```bash
+curl -I http://mega-big-tech.s3.amazonaws.com
+---
+
+### 3. Perform Nmap Scan on Web Server
+Used Nmap to scan the target IP and check for open ports:
+```bash
+nmap -Pn 54.204.171.32
+---
+
+### 4. Access S3 Bucket via Web Browser
+Used a browser to view the bucket contents directly:
+http://mega-big-tech.s3.amazonaws.com/
+---
+
+### 5. Brute-Force AWS Account ID Using s3-account-search
+Used `s3-account-search` to enumerate the AWS Account ID via IAM role policy wildcards:
+```bash
+s3-account-search arn:aws:iam::107513503799:role/LeakyBucket mega-big-tech
+---
+
+### 6. Discover Public EBS Snapshot
+Searched for public EBS snapshots using the discovered AWS Account ID in the AWS Console.
+
+✅ Results:
+- Located an **8 GiB public EBS snapshot** linked to account ID `107513503799`
+- Snapshot was unencrypted and publicly accessible
+- This represents a serious cloud security risk, as the snapshot could be copied and analyzed offline
