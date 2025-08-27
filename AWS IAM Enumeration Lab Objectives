@@ -1,0 +1,19 @@
+AWS IAM Enumeration Lab Objectives
+
+Scenario: Investigated suspicious AWS activity for Huge Logistics by enumerating IAM user dev01, analyzing attached roles and policies, and identifying exposed AWS resources.
+
+Tools: AWS CLI, Kali Linux, IAM & S3 modules, text editor/terminal.
+
+Key Steps:
+
+Configured AWS CLI with provided credentials.
+
+Verified IAM identity and retrieved user details.
+
+Checked group memberships and attached policies.
+
+Analyzed managed (AmazonGuardDutyReadOnlyAccess) and custom policies.
+
+Enumerated IAM role BackendDev and inline S3 access policy.
+
+Listed and accessed S3 bucket hl-dev-artifacts to retrieve flag.txt.
