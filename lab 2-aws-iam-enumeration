@@ -1,5 +1,4 @@
-# Lab 2 – AWS IAM Enumeration and Privilege Discovery
-
+AWS IAM Enumeration Lab Objectives
 ## 🧠 Scenario
 As a security consultant for **Huge Logistics**, you were hired to investigate suspicious AWS activity. Your objective was to enumerate the IAM user `dev01`, analyze attached roles and policies, and uncover potentially exposed AWS resources.
 
